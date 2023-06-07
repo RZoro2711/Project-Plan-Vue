@@ -1,22 +1,22 @@
 {
   "projects": [
     {
-      "id": 1,
-      "title": "Project Title 1",
-      "detail": "Project Detail 1",
-      "complete": false
+      "title": "Take a Breakfast",
+      "detail": "I am so hungry",
+      "complete": false,
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "Project Title 2",
-      "detail": "Project Detail 2",
-      "complete": true
+      "title": "Take a lunch",
+      "detail": "I am not Hungry",
+      "complete": false,
+      "id": 2
     },
     {
-      "id": 3,
-      "title": "Project Title 3",
-      "detail": "Project Detail 3",
-      "complete": false
+      "title": "Take a Dinner",
+      "detail": "I can't take it anymore",
+      "complete": false,
+      "id": 3
     }
   ]
 }

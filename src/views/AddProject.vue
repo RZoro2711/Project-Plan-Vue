@@ -4,7 +4,7 @@
         <label for="">Title</label>
         <input type="text" placeholder="Enter Your Title" v-model="title">
         <label for="">Detail</label>
-        <textarea name="" id="" cols="30" rows="10" placeholder="Enter Your Detail" v-model="detail"></textarea>
+        <input type="text" placeholder="Enter Your Detail" v-model="detail">
         <button>Add New</button>
     </form>
 </template>
@@ -66,20 +66,23 @@ label {
 input {
     padding: 10px;
     border: 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid black;
     width: 100%;
     box-sizing: border-box;
+    outline: none;
 }
-
+/* 
 textarea {
-    border: 1px solid #ddd;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid black;
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
     height: 100px;
-}
+} */
 
-button {
+form button {
     display: block;
     margin: 20px auto 0;
     background: #00Ce89;

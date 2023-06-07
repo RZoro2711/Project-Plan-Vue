@@ -4,7 +4,7 @@
         <label for="">Title</label>
         <input type="text" placeholder="Enter Your Title" v-model="title">
         <label for="">Detail</label>
-        <textarea name="" id="" cols="30" rows="10" placeholder="Enter Your Detail" v-model="detail"></textarea>
+        <input type="text" placeholder="Enter Your Detail" v-model="detail">
         <button @click="updateProject">Update</button>
     </form>
 </template>

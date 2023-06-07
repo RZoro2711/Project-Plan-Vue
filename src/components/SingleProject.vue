@@ -1,12 +1,13 @@
 <template>
-    <div class="project" :class="{complete:project.complete}">
+    <div class="project" :class="{ complete: project.complete }">
         <div class="flexing">
             <div>
-                <h3 @click="showDetail= !showDetail">{{ project.title }}</h3>
+                <h3 @click="showDetail = !showDetail">{{ project.title }}</h3>
             </div>
             <div>
                 <i @click="deleteProject" class="fas fa-trash"></i>
-                <i class="fa-solid fa-pencil"></i>
+                <router-link :to="{ name: 'EditProject', params: { id: project.id } }"><i
+                        class="fa-solid fa-pencil"></i></router-link>
                 <i @click="completeProject" class="fa-solid fa-check"></i>
             </div>
         </div>
@@ -21,37 +22,37 @@ export default {
     data() {
         return {
             showDetail: false,
-            api : "http://localhost:3000/projects/",
+            api: "http://localhost:3000/projects/",
         }
     },
-    methods:{
-        deleteProject(){
-            fetch(this.api+this.project.id,{method:"Delete"})
-            .then(()=>{
-                this.$emit('delete',this.project.id)
-            })
-            .catch((err)=>{
-                console.log(err)
-            })
+    methods: {
+        deleteProject() {
+            fetch(this.api + this.project.id, { method: "Delete" })
+                .then(() => {
+                    this.$emit('delete', this.project.id)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         },
-        completeProject(){
-            fetch(this.api+this.project.id,{
-                method : "PATCH",
-                headers : {
-                    "Content-Type" : "application/json",
+        completeProject() {
+            fetch(this.api + this.project.id, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
                 },
-                body : JSON.stringify(
+                body: JSON.stringify(
                     {
-                        complete : !this.project.complete
+                        complete: !this.project.complete
                     }
                 )
             })
-            .then(()=>{
-                this.$emit('complete',this.project.id)
-            })
-            .catch((err)=>{
-                console.log(err)
-            })
+                .then(() => {
+                    this.$emit('complete', this.project.id)
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         }
     }
 }
@@ -70,20 +71,23 @@ h3 {
     color: indigo;
     cursor: pointer;
 }
-.flexing{
+
+.flexing {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-i{
+
+i {
     margin-left: 10px;
     font-size: 20px;
 }
-i:hover{
+
+i:hover {
     color: #7777;
     cursor: pointer;
 }
-.complete{
+
+.complete {
     border-left: 6px solid green;
-}
-</style>
+}</style>

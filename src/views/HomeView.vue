@@ -13,23 +13,24 @@ import SingleProject from '../components/SingleProject'
 export default {
   name: 'HomeView',
   components: {
-    SingleProject,},
+    SingleProject,
+  },
   data() {
     return {
       projects: []
     }
   },
-  methods:{
-    deleteProject(id){
-      this.projects = this.projects.filter((project)=>{
+  methods: {
+    deleteProject(id) {
+      this.projects = this.projects.filter((project) => {
         return project.id != id
       })
     },
-    completeProject(id){
-      let findproject = this.projects.find((project)=>{
+    completeProject(id) {
+      let findproject = this.projects.find((project) => {
         return project.id == id
       })
-      findproject.complete =  !findproject.complete
+      findproject.complete = !findproject.complete
     }
   },
   mounted() {
@@ -44,7 +45,7 @@ export default {
 }
 </script>
 <style>
-h2{
+h2 {
   text-align: center;
   margin: 30px auto;
 }

@@ -43,3 +43,9 @@ export default {
   }
 }
 </script>
+<style>
+h2{
+  text-align: center;
+  margin: 30px auto;
+}
+</style>

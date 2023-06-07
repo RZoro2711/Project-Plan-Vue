@@ -1,5 +1,5 @@
 <template>
-    <div class="project">
+    <div class="project" :class="{complete:project.complete}">
         <div class="flexing">
             <div>
                 <h3 @click="showDetail= !showDetail">{{ project.title }}</h3>
@@ -7,7 +7,7 @@
             <div>
                 <i @click="deleteProject" class="fas fa-trash"></i>
                 <i class="fa-solid fa-pencil"></i>
-                <i class="fa-solid fa-check"></i>
+                <i @click="completeProject" class="fa-solid fa-check"></i>
             </div>
         </div>
         <p v-if="showDetail">{{ project.detail }}</p>
@@ -29,6 +29,25 @@ export default {
             fetch(this.api+this.project.id,{method:"Delete"})
             .then(()=>{
                 this.$emit('delete',this.project.id)
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+        },
+        completeProject(){
+            fetch(this.api+this.project.id,{
+                method : "PATCH",
+                headers : {
+                    "Content-Type" : "application/json",
+                },
+                body : JSON.stringify(
+                    {
+                        complete : !this.project.complete
+                    }
+                )
+            })
+            .then(()=>{
+                this.$emit('complete',this.project.id)
             })
             .catch((err)=>{
                 console.log(err)
@@ -63,5 +82,8 @@ i{
 i:hover{
     color: #7777;
     cursor: pointer;
+}
+.complete{
+    border-left: 6px solid green;
 }
 </style>
